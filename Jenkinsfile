@@ -23,6 +23,23 @@ pipeline {
           sh 'npm test'
         }
       }
+      stage('Deploying') {
+        steps {
+          sh 'npm deploy'
+        }
+      }
+      stage('slack') {
+        steps {
+          slackSend message: 'test message'
+        }
+      }
+    }
+    post {
+    success {
+      echo 'send test message'
+    }
+    failure {
+      echo'send'
+    }
     }
 }
-
