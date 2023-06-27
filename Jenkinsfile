@@ -1,5 +1,4 @@
 pipeline {
-
   agent any
 
   tools {
@@ -12,7 +11,7 @@ pipeline {
           git 'https://github.com/Emaina98/gallery.git'
         }
       }
-        
+
       stage('installing dependancies') {
         steps {
           sh 'npm install'
@@ -25,3 +24,5 @@ pipeline {
         }
       }
     }
+}
+
